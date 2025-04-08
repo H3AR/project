@@ -1,3 +1,22 @@
+def soma(a, b):
+    result = a + b
+    return result
+
+def subtracao(a, b):
+    result = a - b
+    return result
+
+
+def multiplicacao(a, b):
+    result = a * b
+    return result
+
+def divisao(a, b):
+    if b == 0:
+        raise ValueError("Divisão por zero não é permitida.")
+    result = a / b
+    return result
+
 while True:
     print("Calculadora")
     print("1. Somar")  
@@ -22,19 +41,19 @@ while True:
         continue
 
     if opcao == '1':
-        result = num1 + num2
-        print(f"{num1} + {num2} = {result}")
+        resultado = soma(num1, num2)
+        print(f"Resultado: {resultado}")
     elif opcao == '2':
-        result = num1 - num2
-        print(f"{num1} - {num2} = {result}")
+        resultado = subtracao(num1, num2)
+        print(f"Resultado: {resultado}")
     elif opcao == '3':
-        result = num1 * num2
-        print(f"{num1} * {num2} = {result}")
+        resultado = multiplicacao(num1, num2)
+        print(f"Resultado: {resultado}")
     elif opcao == '4':
-        if num2 == 0:
-            print("Erro: Divisão por zero não é permitida.")
-        else:
-            result = num1 / num2
-            print(f"{num1} / {num2} = {result}")
+        try:
+            resultado = divisao(num1, num2)
+            print(f"Resultado: {resultado}")
+        except ValueError as e:
+            print(e)
     else:
         print("Opção inválida. Tente novamente.")
